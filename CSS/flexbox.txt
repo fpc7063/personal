@@ -1,0 +1,36 @@
+FUNDAMENTOS FLEXBOX
+https://www.origamid.com/projetos/flexbox-guia-completo/
+
+
+---------- FLEX BOX ----------
+display: flex; #habilita a utilização do flex - respeita o conteudo
+
+flex-wrap: wrap; #item quebra a linha para baixo
+flex-wrap: nowrap; #item não quebra (PADRÃO)
+flex-wrap: wrap-reverse; #item quebra a linha para cima
+
+flex: 1; #proporção que se utiliza para divir os itens no display: flex;
+
+flex-direction: row; #itens são dispostos em linha (PADRÃO)
+flex-direction: row-reverse #itens são dispostos em linha de cima para baixo
+flex-direction: column; #itens são dispostos em coluna
+flex-direction: column-reverse #itens são dispostos em coluna da direita para a esquerda
+
+flex-flow: row nowrap; #define flex-direction e flex-wrap
+flex-flow: row wrap; #define flex-direction e flex-wrap
+flex-flow: column nowrap; #define flex-direction e flex-wrap
+
+justify-content: flex-start; #Alinha os itens ao início da direção do container (PADRÃO)
+justify-content: flex-end; #Alinha os itens ao final da direção do container
+justify-content: center; #Alinha os itens ao centro da direção do container
+justify-content: space-around; #Cria um espaçamento entre os elementos. Os espaçamentos do meio são duas vezes maiores que o inicial e o final
+
+align-items: strech; #Faz com que os flex itens cresçam igualmente (PADRÃO)
+align-items: flex-start; #Alinha os itens ao início do eixo do container
+align-items: flex-end; #Alinha os itens ao final do eixo do container
+align-items: center; #Alinha os itens no meio do eixo do container
+align-items: baseline; #Alinha os itens de acordo com a linha de base da escrita
+
+
+---------- FLEX ITEM ----------
+
