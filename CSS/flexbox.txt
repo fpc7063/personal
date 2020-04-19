@@ -31,6 +31,33 @@ align-items: flex-end; #Alinha os itens ao final do eixo do container
 align-items: center; #Alinha os itens no meio do eixo do container
 align-items: baseline; #Alinha os itens de acordo com a linha de base da escrita
 
+#NECESSITA DE flex-wrap: wrap; !!!!
+align-content: stretch; #Estende o conteúdo para ocupar todo o container na vertical (PADRÃO)
+align-content: flex-start; #Não estica o conteudo e o alinha ao início do container
+align-content: flex-end; #Não estica o conteúdo e alinha ao final do container
+align-content: center; #Não estica o conteúdo e alinha ao centro do container
+align-content: space-between; #Não estica o conteúdo e o espalha com espaços padrões no sentido do container
+align-content: space-around; #Não estica o conteúdo e o espalha na flexbox. Os epsçamentos do meio são duas vezes maiores que o inicial e o final
+
+
+
+
+
 
 ---------- FLEX ITEM ----------
+
+
+flex-grow: 1; #Cresce com um tamanho padrão como se fosse um padding antes e depois do flex item
+
+flex-basis: "MIN-WIDTH"
+flex-basis: auto; #Utiliza a própria largura do item (PADRÃO) +width: 10px; -> Começa a crescer a partir dos 10px
+flex-basis: 0; #Itens de tamanhos iguais
+flex-basis: 15px; #Muda a base do flex-item em 15px
+
+flex-shrink: 1; #Permite que o item tenha seu tamanho reduzido para caber no container
+flex-shrink: 0; #Não permite a diminuição dos itens
+flex-shrink: numero; #Determina a proporção que um item diminui flex-shrink: 3; flex-shrink: 1; O primeiro diminuirá 3 vezes mais que o 1
+
+
+
 
