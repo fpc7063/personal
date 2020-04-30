@@ -1,0 +1,35 @@
+
+#PRINT postgresql version and OS version
+sudo -u postgres psql -c "SELECT version();"
+
+#Login into postgres
+sudo su - postgres
+psql
+
+#Config file
+sudo vim /etc/postgresql/12/main/postgresql.conf
+
+CHANGE FILE
+# - Connection Settings -
+
+listen_addresses = '*'     # what IP address(es) to listen on;
+
+
+#/etc/postgresql/12/main/pghba.con
+
+
+#Lista todos os usuarios do postgresql
+\du
+
+
+#Change user password
+ALTER USER postgres WITH PASSWORD 'test1231;
+
+#CREATE USER
+CREATE USER "name" WITH PASSWORD 'teste';
+
+#GRANT USER PRIVILAGES
+ALTER USER "name" WITH SUPERUSER;
+
+#REMOVE USER
+DROP USER "name";
