@@ -259,6 +259,11 @@ export VARIAVEL2=batata -> atribui e exporta
 
 
 
+echo \* -> "\" protege o proximo caracter de ser interpretado pelo shell
+$ *
+
+"" -> $ `` / NAO PROTEGE
+'' -> $ `` / PROTEGE
 
 
 
@@ -268,6 +273,26 @@ export VARIAVEL2=batata -> atribui e exporta
 
 
 
+VIM
+Ctrl + B -> sobe uma pagina
+Ctrl + F -> desce uma pagina
+/ -> procura de cima pra baixo
+? -> procura de baixo pra cima
+n -> proximo
+N -> anterior
+dd -> recorta linha
+y -> copia
+p -> cola
+v -> visual
+h -> move para esquerda
+l -> move para direita
+j -> move para cima
+k -> move para baixo 
+q -> sai
+q! -> sai sem salvar
+x -> salva e sai
+w -> salva
+wq -> salva e sai
 
 
 
@@ -277,10 +302,55 @@ export VARIAVEL2=batata -> atribui e exporta
 
 
 
+File Globbing
+* -> tudo
+[12345], [1-5] -> qualquer um que faça parte da lista
+[Ll]inux -> linux ou Linux
+{aula,AULA} -> qualquer um com algum dos dois
+? -> qualquer caractere
 
 
 
 
+
+
+REGEX
+^Linux -> toda linha que comeca com: Linux
+Linux$ -> toda linha que termina com: Linux
+^$ -> toda linha que tem "vazio"
+ba* -> qualquer linha que tenha a nenhuma, uma ou varias vezes
+b+ -> qualquer linha que tenha b uma ou mais vezes
+b? -> qualquer linha que tenha b uma ou apenas uma vez
+a.b -> qualquer coisa entre a e b
+a.*b -> exista qualquer coisa OU NAO entre a e b
+\. -> "\" protege o caractere especial (expressa "." no caso)
+
+
+
+
+
+BASH
+. *.sh -> executa no bash atual
+source *.sh -> executa no bash atual
+./*.sh -> abre um subshell
+bash *.sh -> executa no subshell com o shell especificado
+
+VARIAVEL DE AMBIENTE
+NOME -> procura a variavel de ambiente
+PATH="$PATH:/PATH/TO/SCRIPT"
+
+PADRAO
+##########################################
+#
+# DESCRICAO DO SCRIPT
+#
+# Autor: Nome do autor (email_de_contato@email.com)
+# Data de criacao: DD/MM/YYYY
+#
+# Descriao: o que o script faz
+#
+# Exemplo de uso: ./script.sh parametro1 parametro...
+#######################################################
 
 
 

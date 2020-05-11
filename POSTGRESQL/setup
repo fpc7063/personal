@@ -15,12 +15,20 @@ CHANGE FILE
 listen_addresses = '*'     # what IP address(es) to listen on;
 
 
-#/etc/postgresql/12/main/pghba.con
+#/etc/postgresql/12/main/pghba.conf
+host  all  all 0.0.0.0/0 md5
 
+#START POSTGRESQLDB
+sudo -u postgres -c "initdb --locale pt_BR.UTF-8 -D '/var/lib/postgres/data'"
 
 #Lista todos os usuarios do postgresql
 \du
 
+#Lista todos os databases
+\l
+
+#Conecta ao database
+\c
 
 #Change user password
 ALTER USER postgres WITH PASSWORD 'test1231;
