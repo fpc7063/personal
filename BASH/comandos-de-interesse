@@ -334,12 +334,14 @@ BASH
 source *.sh -> executa no bash atual
 ./*.sh -> abre um subshell
 bash *.sh -> executa no subshell com o shell especificado
+DATAHORA=$(date +%H:%M) -> executa o comando em um subshell
 
 VARIAVEL DE AMBIENTE
 NOME -> procura a variavel de ambiente
 PATH="$PATH:/PATH/TO/SCRIPT"
 
-PADRAO
+
+PADRAO DE INICIO DE SCRIPT
 ##########################################
 #
 # DESCRICAO DO SCRIPT
@@ -350,8 +352,19 @@ PADRAO
 # Descriao: o que o script faz
 #
 # Exemplo de uso: ./script.sh parametro1 parametro...
+#
+# Alteracoes:
+#	Dia X - Inclusao da funcao de ordenacao
+#	Dia Y - Correcao da funcao de leitura
+#
 #######################################################
 
+
+EXIT CODE
+0 - 255
+0 -> sucesso
+1 - 255 -> ERROR
+$? -> retorna exit code do ultimo comando
 
 
 
