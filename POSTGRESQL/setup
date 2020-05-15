@@ -31,7 +31,7 @@ sudo -u postgres -c "initdb --locale pt_BR.UTF-8 -D '/var/lib/postgres/data'"
 \c
 
 #Change user password
-ALTER USER postgres WITH PASSWORD 'test1231;
+ALTER USER postgres WITH PASSWORD 'postgres';
 
 #CREATE USER
 CREATE USER "name" WITH PASSWORD 'teste';
