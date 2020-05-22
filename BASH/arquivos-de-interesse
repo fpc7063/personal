@@ -19,3 +19,10 @@ games:x:5:60:games:/usr/games:/usr/sbin/nologin
 /etc/systemd/system
 
 /etc/init.d
+
+
+
+
+/etc/profile -> root ".bashrc"
+
+/etc/sudoers -> sudo .bashrc

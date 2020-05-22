@@ -1,0 +1,23 @@
+#START NPM INSTANCE
+npm init
+
+{
+package name:
+version:
+description:
+entry point: (app.js)
+test command:
+git repository:
+keywords:
+author:
+}
+
+
+#instala a ultima versao estavel do pacote
+npm i package
+
+#instala versao de um pacote
+npm i package@0.0.0
+
+#instala globalmente a ultima versao de um pacote
+npm i -g package@0.0.0
