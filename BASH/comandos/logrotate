@@ -1,0 +1,71 @@
+logrotate options:
+
+logrotate -s /path/to/file.conf
+
+TIME: how often is rotated
+yearly
+monthly
+weekly
+daily
+hourly
+
+DATEEXT: rotate file with date on filename
+dateext
+
+SIZE: rotate when size reaches an specific limite
+size 10K
+size 100M
+size 1G
+
+CREATE: create file with specified permissions and user:group
+create 0700 user group
+
+EXTENSION: preserve the extension, logs will be rotated like: access.1.log.gz not like: acess.log.1.gz
+extension log
+
+COPYTRUNCATE: continue to write to new file after rotating old one
+copytruncate
+
+###################### SCRIPT ##############################
+POSTROTATE: run script after rotating
+postrotate
+	/path/to/script.sh
+endscript
+
+PREROTATE: run script before rotating
+prerotate
+	/path/to/script.sh
+endscript
+
+SHAREDSCRIPTS: prevent logrotate from running postrotate/prerotate more then one time per file
+sharedscripts
+####################### FILE ##########################
+MAXAGE: remove files older then X days
+maxge 10
+
+ROTATE: specify how many times logs are rotated before old logs are deleted
+rotate 4
+rotate 0 -> logs are deleted after rotated
+
+MAIL: delete logs after they are emailed
+mail <example@email.com>
+
+MISSINGOK: dont return ERRO message if logfile is missing
+missingok
+
+################### COMPRESSION #################
+COMPRESS: apply gzip algorithm to rotated file
+compress
+
+NOCOMPRESS: do not compress logfiles
+nocompress
+
+DELAYCOMPRESS: delay log compress after the rotating, postpone by one rotating cycle
+delaycompress
+
+COMPRESSEXT: specify the output extension
+compressext .bz2
+
+COMPRESSCMD: specify the compress command
+compresscmd /bin/bzip2
+compresscmd xz
