@@ -27,8 +27,10 @@ docker inspect --format='{{index .RepoDigests 0}}' $IMAGE
 docker import "arquivo"
 
 #Load an image from STDIN from tar archive
-docker load < "arquivo?"
+docker load < "arquivo"
 
+#Name image
+#sudo docker tag "IMAGE_ID" "NAME"
 
 ----------- MANIPULACAO DE CONTAINER DOCKER --------------
 
