@@ -1,0 +1,10 @@
+When manipulating cookies
+- change individual bits and watch for results
+- swap the positions of pair cookies, often the first will pass some initial validation and the other will be used for some other purpose
+
+Hashed cookies
+- watch for cookies from 32-40 hex numbers
+- watch for common hash sizes
+
+
+Try out cookie in other enconding

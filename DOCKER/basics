@@ -1,0 +1,71 @@
+--------------------- IMAGENS DOCKER ---------------------
+
+#Baixar imagem do registry
+docker pull "nome-da-imagem"
+
+#Salvar a imagem no registry
+docker push "imagem"
+
+#Listar imagens
+docker images
+
+#Criar container a partir de imagem
+docker container run -it --name "nome-do-container" "imagem"
+-p 80:80 -> especificar porta exposta
+
+#Criar imagem do container atual
+docker container commit "nome-do-container" "novo-nome-da-imagem"
+
+#Salvar imagem para arquivo tar
+docker save "image" > "name".tar
+docker -save
+
+#SHA256 de uma imagem docker
+docker inspect --format='{{index .RepoDigests 0}}' $IMAGE
+
+#Cria filesystem image from tarball
+docker import "arquivo"
+
+#Load an image from STDIN from tar archive
+docker load < "arquivo?"
+
+
+----------- MANIPULACAO DE CONTAINER DOCKER --------------
+
+#Criar container
+docker create
+
+#List containers em execucao
+docker ps
+docker container list
+
+#Listar TODOS os containers
+docker container list -a
+docker container list --all
+
+#Iniciar container parado
+docker start "container"
+
+#Parar container
+docker container stop "nome do container"
+
+#Mata o processo do container
+docker kill "container"
+
+#Remover container
+docker rm "container"
+
+#Mostra estatiscas de uso de um container
+docker stats
+
+#Executar comando dentro do container
+docker container exec -it app ping db
+
+#Criar imagem do container atual
+docker container commit "nome-do-container" "novo-nome-da-imagem"
+
+
+--------------------- REDES DOCKER ---------------------
+
+#Listar Redes do container
+docker network list
