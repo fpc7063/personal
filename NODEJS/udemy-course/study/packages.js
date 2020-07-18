@@ -51,3 +51,19 @@ console.log(yargs.argv)
 
 
 //POSTMAN-REQUEST www.npmjs.com/package/postman-request NEW
+
+
+
+
+
+
+
+//CRYPTO - hash library
+npm i crypto-js
+
+
+
+
+
+//XSS PREVENT
+npm i xss

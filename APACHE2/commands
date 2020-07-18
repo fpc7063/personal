@@ -1,0 +1,2 @@
+#test config before restarting the server
+apachectl configtest

@@ -1,8 +1,0 @@
-#Create public key from private key
-ssh-keygen -y -f key.pem > key.pub
-
-#Send key to server
-ssh-copy-id demo@198.51.100.0
-
-#Run script on server
-ssh serverA "bash -s" < ./ex.bash "hi" "bye"
