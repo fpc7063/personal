@@ -11,6 +11,7 @@ games:x:5:60:games:/usr/games:/usr/sbin/nologin
 
 
 /dev/urandom -> gerador aleatorio do linux
+head /dev/urandom | strings -> absorve parte do gerador e converte em string
 
 
 
@@ -26,3 +27,8 @@ games:x:5:60:games:/usr/games:/usr/sbin/nologin
 /etc/profile -> root ".bashrc"
 
 /etc/sudoers -> sudo .bashrc
+
+
+
+/proc/cpuinfo -> cpu usage and info
+/proc/meminfo -> ram memory and info

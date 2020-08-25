@@ -1,0 +1,7 @@
+IO=CFQ ou NOOP => SSD ou boa concorrencia
+BFQ (maquinas ruins) HD mecanico de baixa qualidade
+DESATIVAR MAQUINA SWAP
+
+
+CPU=CFS(padrao) => maquinas boas
+MuQSS => maquinas ruins

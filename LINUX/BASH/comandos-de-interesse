@@ -79,11 +79,11 @@ wc -c -> so numero de bytes
 sort -> ordena o arquivo
 sort -r -> ordena ao contrario
 sort -k 2 -> ordena pelo segundo campo
-
+sort -u -> ordena com uniquer
 
 uniq -> filtra resultados iguais em sequencia
 sort | uniq -> melhor utilizacao, ordena e filtra resultados em sequencia
-sort -u -> mostra so o que apareceu uma vez
+sort -u -> mesma coisa do anterior
 sort | uniq -c -> conta o numero de aparicoes
 
 
@@ -264,6 +264,8 @@ $ *
 
 "" -> $ `` / NAO PROTEGE
 '' -> $ `` / PROTEGE
+`` -> executa comando e retorna stdout como texto
+$() -> mesma coisa que aspas
 
 
 
@@ -374,6 +376,60 @@ $? -> retorna exit code do ultimo comando
 
 
 
+read -> le uma entrada do usuario
+read VAR ; echo $VAR -> Adicionar a $VAR o valor stdin
+read -p -> sem newline
+read -s -> le entrada sem mostra-la na tela
+read "Texto> " -> printa texto antes da entrada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#CONDICIONAIS
+
+#######test
+test
+-eq -> equal
+-nq -> not equal
+-gt -> greater then
+-ge -> greater then or equal
+-lt -> less then
+-le -> less then or equal
+test -f -> try file existence
+test "$V1" = "$V2" -> string of both variables are equal?
+[] = test
+[ -f /tmp/test ] -> test -f /tmp/test
+[ 50 -gt 100 ] -> test 50 -gt 100
+
+&& -> e (executa o segundo ao executar corretamente o primeiro)
+|| -> ou (executa o segundo ao falhar o primeiro)
+! -> negacao
+
+
+########if
+ 
+if
+then
+	echo "Opcao 1"
+elif
+	echo "Opcao 2"
+else
+	echo "Opcao de Excessao"
+fi
+
+
+########case 
 
 
 
@@ -393,3 +449,11 @@ $? -> retorna exit code do ultimo comando
 
 
 
+
+
+
+
+
+
+#REDES
+netstat -nat | awk '{print $6}' | sort | uniq -c | sort -n
