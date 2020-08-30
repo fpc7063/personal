@@ -245,6 +245,18 @@ env | less ->
 set | less -> 
 
 
+
+#VARIAVEIS RESERVADAS
+$0-9
+$[@]
+$#
+$HOME
+$PATH
+$USER
+
+####
+
+
 echo $HOME -> variavel do home do usuario atual
 VARIAVEL1=Valor
 VARIAVEL2="Curso de Shell Script"
@@ -381,6 +393,8 @@ read VAR ; echo $VAR -> Adicionar a $VAR o valor stdin
 read -p -> sem newline
 read -s -> le entrada sem mostra-la na tela
 read "Texto> " -> printa texto antes da entrada
+read -p "Isso vai alterar o escape de ENTER para SPACE" '-d '
+read -s -p 'Para utilizar o SAFE: '
 
 
 
@@ -429,23 +443,225 @@ else
 fi
 
 
+#####
+if grep "fpc-ubut" /etc/passwd > /dev/null
+then
+	echo "Usuario existe"
+else
+	echo "Usuario nao existe"
+fi
+
 ########case 
 
+case $VAR in
+[0-9])
+	echo "DO 1"
+;;
+
+[a-z])
+	echo "DO 2"
+;;
+
+[A-Z])
+	echo "DO 3"
+
+*)
+	echo "DO 4"
+;;
+
+esac
 
 
 
 
 
+################## LOOPS
 
 
 
+for number in 1 2 3 4 5
+do
+	echo "$NUMBER"
+done
+
+###
+for FILE in files*
+do
+	echo "$FILE"
+done
+
+### $(seq 1 5 50) - 1 a 50 em intervalos de 5
+for NUM in $(seq 5 10)
+do
+	echo "$NUM"
+done
+
+###{1..50..5}
+for NUM in {5..0}
+do
+	echo "$NUM"
+done
+
+###
+for LINE in $(cat arquivo)
+do
+	echo "$LINE"
+done
+
+###
+for (( i=5; i <= 20; i++))
+do
+	echo "$i"
+done
+
+
+#### while
+
+while <condicao>
+do
+	echo "Executando!!!"
+done
+
+###
+while [ $(ps aux | wc -l) -lt 300 ]
+do
+	echo "Tudo OK"
+	sleep 30
+done
+
+###
+while ls /var/lock/process.lock > /dev/null
+do
+	echo "Processo em execucao"
+	sleep 30
+done
+
+###
+x=1
+while [ $x -le 20 ]
+do
+	echo "O valor de x: $x"
+	x=$(expr $x + 1)
+done
+
+###### until
+
+until <condicao>
+do
+	comando 1
+	comando 2
+done
+
+###
+x=1
+until [ $x -eq 20 ]
+do
+	echo "O valor atual e $x"
+	x=$( $x + 1 )
+done
+
+###
+until ls /var/lock/processo.lock > /dev/null
+do
+	echo "Aguardando processo"
+	sleep 30
+done
+
+
+#### break
+while ls /var/lock/process.lock > /dev/null
+do
+	if [ $(date +%H) -gt 18 ]
+	then
+		break
+	fi
+	echo "Processo em execucao"
+	sleep 30
+done
+
+#### continue
+while ls /var/lock/process.lock > /dev/null
+do
+	if [ $(date +%H) -gt 18 ]
+	then
+		continue
+	fi
+	echo "Processo em execucao
+	sleep 30
+done
 
 
 
+########## FUNCTIONS
+
+func () {
+	VAR1='OI'
+	local VAR2='TCHAU'
+}
+func
+echo "$VAR1"
+echo "$VAR2" -> vai dar erro
 
 
 
+########## LOGGING
 
+./script.sh >> log.out 2>&1 log.out
+./script.sh >> log.out 2>> log_error.out
+./script.sh &> log.out
+./script.sh | tee -a log.out
+
+<script.sh>
+exec &> log.out
+OU
+exec 1>> log.out
+exec 2>> log.out
+OU
+##PROCESS SUBSTITUTION
+exec 1>> >(tee -a "$LOG")
+
+
+logger -p service_defined_in_syslog.criticity "Mensagem"
+logger -p service.criticity -t [Minha tag] "Mensagem"
+echo "Mensagem" | logger -p service.criticity -t [Minha tag]
+
+
+
+############## MAIL ou MUTT ou SENDEMAIL
+apt install bsd-mailx
+# Usa um postfix
+
+#Encaminha o log.out
+mail -s "Assunto" meusuario@dominio.com.br < log.out
+
+#Le o email
+mail
+1
+
+
+# mutt permite enviar mensagens a partir de servidores de email externo
+# sendemail permite tambem
+
+
+############# DEBUGGING
+bash -n myscript.sh parametro1
+bash -x -> mostra os comandos executados
+ou
+#!/bin/bash
++ -> executa um comando
+++ -> executa um novo shell para o comando
+
+bash -v -> comando + resultado de execucao
+bash -xv -> comando/bash + resultado de execucao
+
+set -xv -> entra em modo debug
+set +xv -> sai do modo debug
+
+
+
+############ TRAP
+trap read DEBUG
+trap "" DEBUG -> execucao linha a linha
 
 
 
