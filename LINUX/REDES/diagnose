@@ -1,4 +1,0 @@
-#Get files of connections
-lsof -i -n
--i select IPv[46] files
--n no HOSTAMES

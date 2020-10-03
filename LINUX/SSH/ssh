@@ -2,7 +2,7 @@
 ssh-keygen -y -f key.pem > key.pub
 
 #Create new SSH KEY
-sh-keygen -t ecdsa -b 521
+ssh-keygen -t ecdsa -b 521
 
 #Add PRIVATE KEY to ssh-agent
 
@@ -17,6 +17,7 @@ ssh usuario@server "bash -s" < ./ex.bash "hi" "bye"
 
 
 #/etc/ssh
+PasswordAuthentication no -> Only SSH keys
 
 #PASSWORD FOR ONE USER
  Match User <username>

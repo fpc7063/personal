@@ -1,0 +1,28 @@
+deboostrap -> bootstrap -> chroot -> live // chroot -> binary
+
+
+lb bootstrap 
+Running debootstrap (download-only)... 
+Running debootstrap... 
+
+
+Unpacking the base system...
+P: Configuring file /etc/apt/apt.conf
+P: Configuring file /etc/apt/sources.list
+
+
+lb chroot
+KERNEL HEADERS AND KERNEL
+
+
+live-boot
+
+
+chroot remove achives
+
+
+lb binary_rootfs
+SQUASHFS
+
+BINARY HOOKS
+

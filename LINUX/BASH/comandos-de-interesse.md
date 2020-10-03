@@ -1,22 +1,31 @@
-dpkg -> "gerenciador de pacotes?"
+
+#Reinciando
+shutdown -r now OU reboot
+shutdown
+shutdown -h OU halt -> Desliga forcadamente
+shutdown now -> desliga no momento
+shutdown 1 -> desliga daqui a um minuto
+
+#dpkg -> "gerenciador de pacotes?"
 dpkg -l -> lista pacotes instalados
 
 
-ls
+#ls
 ls -ltr
 ls -1 -> 1 arquivo por linha
 
 
-ps -> minha sessao
+#ps -> minha sessao
 ps aux -> SAIDA:
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.0  0.0   9116   308 ?        Ssl  Apr19   0:01 /init
 
 
-touch -> testa se arquivo existe ou nao e altera a data de modificacao
+#touch -> testa se arquivo existe ou nao e altera a data de modificacao
+touch -f -> test file
 
 
-echo -> "print"
+#echo -> "print"
 echo -n -> nao quebra linha (\n)
 echo -e -> permite o uso de tabulacao (backslash escapes \n \a \t"
 	\a -> espaco
@@ -29,43 +38,42 @@ echo -e -> permite o uso de tabulacao (backslash escapes \n \a \t"
 	
 
 
-mkdir -> cria diretorio
+#mkdir -> cria diretorio
 mkdir -p -> cria toda a arvore de diretorio $ mkdir -p diretorio1/diretorio2
 
 
-rm -> remove arquivo
+#rm -> remove arquivo
 rm -f -> forca a remocao do arquivo (nao aparece error e mensagens de confirmacao)
 rm -r -> remove tudo dentro do diretorio
 
 
-rmdir -> remove apenas o diretorio (tem que estar vazio)
+#rmdir -> remove apenas o diretorio (tem que estar vazio)
 
 
-sleep 10 -> aguarda 10s esperando
+#sleep 10 -> aguarda 10s esperando
 
 
-cat -> le o arquivo carregando ele todo em memoria
+#cat -> le o arquivo carregando ele todo em memoria
 cat -b -> numero todas as linhas, menos a em branco
 cat -n -> numera todas as linhas, inclusive as em branco
 cat -A -> mostra caracteres de tabulacao e especiais
 
+#tac -> cat invertido, da ultima para a primeira linha
 
-tac -> cat invertido
 
-
-tail -> mostra ultimas linhas do arquivo
+#tail -> mostra ultimas linhas do arquivo
 tail -n 5 -> ultimas 5 linhas
 tail 2 -> ultimas 2 linhas
 tail -f -> acompanha novas linhas escritas no arquivo
 
 
-head-> mostra primeiras linhas do arquivo
+#head-> mostra primeiras linhas do arquivo
 head -n 5 -> primeiras 5 linhas
 head 2 -> primeiras 2 linhas
 head -c -> pega quantidade especifica de caracteres
 
 
-wc -> conta quantidade de bytes, caracteres e linha
+#wc -> conta quantidade de bytes, caracteres e linha
 	ps aux | wc
 	18L;   210 palavras; 1405 caracteres
 	18     210    1405
@@ -73,21 +81,21 @@ wc -l -> so numero de linhas
 wc -w -> so numero de palavras
 wc -m -> so numero de caracteres
 wc -c -> so numero de bytes
-#wc -m e wc -c geralmente apresentam o mesmo numero
+wc -m e wc -c geralmente apresentam o mesmo numero!!!!!!
 
 
-sort -> ordena o arquivo
+#sort -> ordena o arquivo
 sort -r -> ordena ao contrario
 sort -k 2 -> ordena pelo segundo campo
 sort -u -> ordena com uniquer
 
-uniq -> filtra resultados iguais em sequencia
+#uniq -> filtra resultados iguais em sequencia
 sort | uniq -> melhor utilizacao, ordena e filtra resultados em sequencia
 sort -u -> mesma coisa do anterior
 sort | uniq -c -> conta o numero de aparicoes
 
 
-tr a-z A-Z -> "translate"
+#tr a-z A-Z -> "translate"
 tr aei AEI -> troca a->A e->E i->I
 tr ' ' '\t' -> troca espaço por tab
 tr -d aei -> deleta letras a,e,i
@@ -95,14 +103,14 @@ tr -s 'l' -> suprime repeticoes
 tr [:lower:] [:upper:] -> transforma todas as lower-case para upper-case
 
 
-sed '1,3 d' -> deleta as linha 1 e 3
+#sed '1,3 d' -> deleta as linha 1 e 3
 sed '/Rafael/d' -> remove as linhas que tem ocorrencia de Rafael
 sed 's/Paulo/Joao/' -> substitui uma ocorrencia de Paulo por Joao
 sed 's/Linux/Unix/g' -> substitui TODAS as ocorrencias de Linux por Unix
 
 
 
-cut -cl-5 -> mostra toda as linha ate o caracter 5 dela
+#cut -cl-5 -> mostra toda as linha ate o caracter 5 dela
 cut -c1,2,3 -> mostra os caracteres 1, 2 e 3 de cada linha
 cut -c1-10 -> mostra caracteres de 1 a 10
 cut -c5- -> mostra a partir do caracter 5
@@ -112,7 +120,7 @@ cut -d " " -f1 -> mostra o campo 1, sendo a separacao dos campos o \n " "
 cut -d " " -f1,3- -> mostra campo 1 e a partir do 3, sendo a separacao dos campos: \n, " "
 
 
-diff "arquivo1" "arquivo2" -> compara o conteudo dos arquivos
+#diff "arquivo1" "arquivo2" -> compara o conteudo dos arquivos
 3c3
 < Ricardo
 ---
@@ -132,7 +140,7 @@ diff -w -> ignora diferenca de espacos em branco
 diff -r -> compara com diretorios
 
 
-grep "string" "arquivo" -> retorna a linha que aparece "string"
+#grep "string" "arquivo" -> retorna a linha que aparece "string"
 grep -i -> remove o case sensitive
 grep -c -> conta quantas ocorrencias
 grep -v -> exclui o que apareceu
@@ -146,24 +154,24 @@ fgrep -> strings simples (MAIS LEVE)
 egrep -> expressoes regulares (MAIS PESADO)
 
 
-whatis -> descricao do comando
+#whatis -> descricao do comando
 
 
-more -> divide em paginas
+#more -> divide em paginas
 
 
-less -> mostra uma parte do arquivo
+#less -> mostra uma parte do arquivo
 	n -> proxima ocorrencia
 	N -> ocorrencia anterior
 
 
-find "path" -> procura arquivos
+#find "path" -> procura arquivos
 find -name "string" -> procura pelo nome "string"
 find -user "string" -> procura arquivos do usuario "string"
 find ./ -exec ls {} +
 
 
-date -> retorna a data do sitema
+#date -> retorna a data do sitema
 "dia da semana" "mes" "dia dos mes" "hora:min:s" "???" "ano"
 date +%H -> retorna hora
 date +%M -> retorna minuto
@@ -171,19 +179,20 @@ date +%m -> retorna mes
 date +%D -> retorna data (01/01/2001)
 date +%d/%m -> retorna data/mes (01/01)
 
+#cal -> CALENDARIO
 
-seq -> retorna sequencia de numeros
+#seq -> retorna sequencia de numeros
 seq 5 -> retorna 1 2 3 4 5
 sec 5 7 -> retorna 5 6 7
 sec 3 3 9 -> retorna 3 6 9
 
 
-expr -> faz contas
+#expr -> faz contas
 expr 5 - 2 -> 2 (apenas inteiros
 expr 5 \* 2 -> 10
 
 
-bc -> faz contas
+#bc -> faz contas
 echo 3+2 | bc -> 5
 echo 3 + 2 | bc -> 5
 echo "(3 + 2)\* 5" -> 25
@@ -308,7 +317,7 @@ x -> salva e sai
 w -> salva
 wq -> salva e sai
 
-
+:set number
 
 
 

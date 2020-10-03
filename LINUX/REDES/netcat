@@ -1,9 +1,0 @@
-#https://tiparaleigo.wordpress.com/2019/08/26/8-comando-netcat-nc-com-exemplos/
-
-#PROXY WITH NETCAT
-#http://www.noah.org/wiki/TCP_proxy_with_netcat
-
-#Listen for connections
-sudo nc -kl $PORT
--k DONT RESET PROCESS AFTER ONE REQUEST, KEEPS LISTENING
--l LISTEN
