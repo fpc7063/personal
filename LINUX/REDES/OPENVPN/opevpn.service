@@ -1,0 +1,18 @@
+# This service is actually a systemd target,
+# but we are using a service since targets cannot be reloaded.
+
+[Unit]
+Description=OpenVPN service
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecReload=/bin/true
+WorkingDirectory=/etc/openvpn
+PIDFile=/var/run/openvpn/%i.pid
+ExecStart=/usr/bin/setsid /usr/sbin/openvpn /etc/openvpn/vpn-jenkins.conf
+
+[Install]
+WantedBy=multi-user.target
