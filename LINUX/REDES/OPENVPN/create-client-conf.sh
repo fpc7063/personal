@@ -2,7 +2,7 @@
 ./easyrsa build-client-full ../../../client/"$1" nopass
 
 FILE=$1
-BASE_FILE=`cat client.ovpn`
+BASE_FILE=`cat example.ovpn`
 
 
 CA="<ca>"

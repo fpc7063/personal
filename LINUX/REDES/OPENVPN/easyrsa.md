@@ -1,5 +1,7 @@
 </usr/share/easy-rsa>
 
+`cp -R /usr/share/easy-rsa /etc/openvpn/`
+
 # EasyRSA comman sheet
 
 ./easyrsa init-pki

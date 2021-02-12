@@ -1,0 +1,9 @@
+# Run Changes
+`FLUSH PRIVILEGES;`
+
+# Users
+* Create User
+`CREATE USER 'user'@'0.0.0.0' IDENTIFIED BY 'senha';`
+
+* Privileges
+`GRANT ALL PRIVILEGES ON `database`.* TO 'user'@'0.0.0.0';`

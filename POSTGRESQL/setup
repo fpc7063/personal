@@ -9,13 +9,10 @@ psql
 #Config file
 sudo vim /etc/postgresql/12/main/postgresql.conf
 
-CHANGE FILE
-# - Connection Settings -
-
 listen_addresses = '*'     # what IP address(es) to listen on;
 
 
-#/etc/postgresql/12/main/pghba.conf
+#/etc/postgresql/12/main/pgh_ba.conf
 host  all  all 0.0.0.0/0 md5
 
 #START POSTGRESQLDB
