@@ -1,0 +1,38 @@
+image: docker:19.03
+
+
+stages:
+  - build
+  - test
+  - push
+  - deploy
+
+before_script:
+  - git clone https://gitlab.com/fpc7063/linuxtips.git
+
+variables:
+  docker_version: 19:03
+
+building_my_app:
+  stage: build
+  script:
+    - docker build -t gitbook .
+
+testing_my_app:
+  script:
+    - docker run gitbook /opt/app/test.sh
+  only: branches
+
+push_to_registry:
+  stage: push
+  script:
+    - docker push gitbook
+  only:
+    - main
+
+deploying_my_app:
+  stage: deploy
+  script:
+    - kubectl apply -f deploy-file.yml
+  only:
+    - main
