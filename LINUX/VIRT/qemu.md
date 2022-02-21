@@ -1,0 +1,69 @@
+https://www.qemu.org/docs/master/system/index.html
+
+
+
+
+
+# DISK IMAGES
+
+## Raw disk image
+Default format in Qemu.
+
+PROS of using RAW Disk Images:
+    It is simple and portable to any other machine.
+    It represents default binary format of a hard disk.
+    Nearly raw performance then other formats, as it has very little overhead and no metadata and at last,
+    Only data written will occupy space, rest of space will be filled with zeros, as it is a sparse file.
+
+CONS of using RAW Disk Images:
+    Does not have other features like compression, AES encryption and snapshot.
+    Backup requires full disk-up, as no incremental back-upand at last
+    Deleted files still occupy space and have to be removed.
+
+
+
+
+
+# CREATE
+qemu-img create -f raw /var/lib/libvirt/images/minha_imagem.img 5G
+
+# PRE ALLOCATION SIZE
+qemu-img create -f raw -o preallocation=full /var/lib/libvirt/images/minha_imagem.img 5G
+
+# VERIFY
+qemu-img info /var/lib/libvirt/images/sample1.img
+
+
+
+# QCAW2
+
+qcow2 is copy on write image disk, where constant size units called clusters compose a file. A cluster holds both data as well as image metadata.
+
+PROS of using qcow2 Disk Images:
+    Smaller images are produced, as no sparse file.
+    It provides zlib based compression.
+    For data security, AES encryption can be used to protect disk image.
+    Multiple Virtual Machine snapshots are offered, as incremental back-up.
+    Small Cluster Size improve image file size, and larger can be used for better performance and at last,
+    Larger Preallocation increases performance as image size increases to grow.
+
+
+CONS of using qcow2 Disk Images:
+    Very slight performance loss in comparison to raw disk image, due to metadata, compression and encryption and,
+    One needs to use fstrim to trim image file, as deleted files does increases image size.
+
+
+
+
+
+
+# CREATE
+qemu-img create -f qcow2 /var/lib/libvirt/images/sample1.qcow2 5G
+
+# CLUSTER SIZE
+qemu-img create -f qcow2 -o cluster_size=2M /var/lib/libvirt/images/sample1.qcow2 5G
+
+# PRE ALLOCATION SIZE
+qemu-img create -f qcow2 -o preallocation=full /var/lib/libvirt/images/sample1.qcow2 5G
+
+# VERIFY

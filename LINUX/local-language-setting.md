@@ -1,0 +1,1 @@
+`sudo locale-gen pt_PT.UTF-8`

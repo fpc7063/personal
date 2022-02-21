@@ -19,6 +19,7 @@ net.ipv4.ip_forward=1
 * Settup daemon
 vim /lib/systemd/system/openvpn.service 
 systemctl enable openvpn
+systemctl $OPERATION openvpn@configFileName
 
 * Move easy-rsa to /etc/openvpn/
 ```
@@ -33,7 +34,7 @@ cd /etc/openvpn/easy-rsa/
 `./easyrsa init-pki`
 
 * Build Certification Authority (CA)
-`./easyrsa build-ca`
+`./easyrsa build-ca nopass`
 
 
 

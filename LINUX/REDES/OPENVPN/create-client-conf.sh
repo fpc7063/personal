@@ -16,7 +16,9 @@ CERT="<cert>\n"`cat /etc/openvpn/client/$1.crt`"\n</cert>"
 KEY="<key>\n"`cat /etc/openvpn/client/$1.key`"\n</key>"
 #echo -e "$KEY"
 
-echo -e "\n$BASE_FILE\n$CA\n$CERT\n$KEY" > ../client/$1.ovpn
+TLS_AUTH="<tls-auth>\n`cat /etc/openvpn/ta.key`\n</tls-auth>"
+
+echo -e "\n$BASE_FILE\n$CA\n$CERT\n$KEY\n$TLS_AUTH" > ../client/$1.conf
 
 
 mkdir /etc/openvpn/client/$1

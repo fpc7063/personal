@@ -1,0 +1,11 @@
+version: '3.0'
+services:
+  pg:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: notSafeAtAllPassword
+      POSTGRES_USER: unsafeUser
+      POSTGRES_DB: django
+      LANG: en_US.utf8
