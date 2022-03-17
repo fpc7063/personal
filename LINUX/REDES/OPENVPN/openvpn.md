@@ -37,7 +37,6 @@ cd /etc/openvpn/easy-rsa/
 `./easyrsa build-ca nopass`
 
 
-
 * Move base openvpn server config file to /etc/openvpn
 ```
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
@@ -45,7 +44,8 @@ gzip -d /etc/openvpn/server.conf.gz
 ```
 
 
-
-
 * Generate Keys
-`openvpn --genkey --secret name.key`
+`openvpn --genkey --secret ta.key`
+`openssl dhparam -out dh2048.pem 2048`
+`cp /etc/openvpn/easy-rsa/pki/private/server.key /etc/openvpn`
+`cp /etc/openvpn/easy-rsa/pki/issued/server.crt /etc/openvpn`
