@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Debian (11) bullseye compilation
+
 apt-get install -y libavcodec-dev libavutil-dev libswscale-dev \
     libxtst-dev libxdamage-dev libxfixes-dev libxrandr-dev \
     libpam-dev libgnutls28-dev libfltk1.3-dev fluid gettext \
